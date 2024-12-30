@@ -1,0 +1,29 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_time_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Range: 2024-12-19 16:10:43 - 2024-12-19 16:10:49"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_pump_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pump Status: 0"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_sensor_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sensor Status: 0"
+        android:textSize="14sp" />
+
+</LinearLayout>
