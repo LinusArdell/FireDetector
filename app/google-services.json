@@ -1,0 +1,87 @@
+{
+  "project_info": {
+    "project_number": "454861475296",
+    "firebase_url": "https://iot-based-fire-alarm-kelompok5-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "iot-based-fire-alarm-kelompok5",
+    "storage_bucket": "iot-based-fire-alarm-kelompok5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454861475296:android:3002747e3c80185a91af85",
+        "android_client_info": {
+          "package_name": "kelompok.iot.firealarm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn3-oGyChuimA6mhzX-OqvWRRZ1BCTXAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454861475296:android:013316c191cee53791af85",
+        "android_client_info": {
+          "package_name": "kelompok.iot.firedetector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn3-oGyChuimA6mhzX-OqvWRRZ1BCTXAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454861475296:android:f9ab872c81d5181591af85",
+        "android_client_info": {
+          "package_name": "kelompok.iot.iotcontroller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn3-oGyChuimA6mhzX-OqvWRRZ1BCTXAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454861475296:android:261024555c3ae29991af85",
+        "android_client_info": {
+          "package_name": "linus.ardell.firedetector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn3-oGyChuimA6mhzX-OqvWRRZ1BCTXAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
