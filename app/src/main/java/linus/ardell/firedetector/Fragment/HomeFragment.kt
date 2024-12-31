@@ -54,21 +54,17 @@ class HomeFragment : Fragment() {
         buttonDate = view.findViewById(R.id.button_date)
         textESP32Status = view.findViewById(R.id.esp32_status)
 
-        // Inisialisasi Firebase
         database = FirebaseDatabase.getInstance().getReference("Main")
         observeFirebaseData()
 
-        // Klik tombol Mode
         buttonMode.setOnClickListener {
             toggleAutoMode()
         }
 
-        // Klik tombol Pump
         buttonPump.setOnClickListener {
             togglePump()
         }
 
-        // Memulai pembaruan status ESP32
         handler.postDelayed(updateStatusRunnable, 1000)
 
         return view
@@ -93,16 +89,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun updateUI(auto: Int, pumpStatus: Int, sensorStatus: Int, currentTime: String) {
-        // Update tombol mode
-        isAutoMode = auto == 1
+        isAutoMode = auto == 0
         buttonMode.text = if (isAutoMode) "Mode: Auto" else "Mode: Manual"
 
-        // Update tombol Pump
         buttonPump.isEnabled = !isAutoMode // Disable tombol jika mode Auto
-        isPumpOn = pumpStatus == 1
+        isPumpOn = pumpStatus == 0
         buttonPump.text = if (isPumpOn) "Pump: ON" else "Pump: OFF"
 
-        // Update tombol lainnya
         buttonSensor.text = "Sensor: $sensorStatus"
         buttonDate.text = "Time: $currentTime"
     }
@@ -164,4 +157,3 @@ class HomeFragment : Fragment() {
         handler.removeCallbacks(updateStatusRunnable)
     }
 }
-
