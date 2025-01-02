@@ -24,11 +24,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/cardview_outline" />
+                android:background="@drawable/fragment_home_cardview" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_title_icon_shape"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/circle_shape"/>
 
                 <ImageView
                     android:id="@+id/iv_title_icon"
@@ -42,13 +50,13 @@
                     android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="9dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="10dp"
                     android:text="@string/tv_title"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="@color/textColor"
-                    android:layout_toEndOf="@id/iv_title_icon"/>
+                    android:layout_toEndOf="@id/iv_title_icon_shape"/>
 
                 <TextView
                     android:id="@+id/tv_subtitle"
@@ -59,12 +67,13 @@
                     android:textSize="12sp"
                     android:textColor="@color/textColor"
                     android:layout_below="@id/tv_title"
-                    android:layout_toEndOf="@id/iv_title_icon"/>
+                    android:layout_toEndOf="@id/iv_title_icon_shape"/>
 
                 <View
+                    android:id="@+id/v_horizontal_1"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="#80FFFFFF"
+                    android:background="@color/viewLine"
                     android:layout_marginTop="9dp"
                     android:layout_marginBottom="16dp"
                     android:layout_below="@id/tv_subtitle"/>
@@ -94,28 +103,120 @@
                     android:layout_centerHorizontal="true"/>
 
                 <View
+                    android:id="@+id/v_rectangle"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_below="@+id/v_half_cirle"
                     android:layout_marginTop="-20dp"
-                    android:background="@color/cardTransparent"/>
+                    android:background="@color/homeCardBackgroundColor"/>
 
                 <View
                     android:id="@+id/v_horizontal_2"
                     android:layout_width="match_parent"
-                    android:layout_height="2.5dp"
-                    android:background="#80FFFFFF"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="40dp"
+                    android:layout_height="2dp"
+                    android:background="@color/viewLine"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginEnd="34dp"
                     android:layout_below="@id/v_half_cirle"/>
 
                 <View
-                    android:layout_width="2.3dp"
-                    android:layout_height="70dp"
-                    android:background="#80FFFFFF"
+                    android:id="@+id/v_vertical_1"
+                    android:layout_width="2.2dp"
+                    android:layout_height="90dp"
+                    android:background="@color/viewLine"
                     android:layout_below="@id/v_horizontal_2"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-1dp"/>
+
+                <View
+                    android:id="@+id/v_horizontal_3"
+                    android:layout_width="20dp"
+                    android:layout_height="5dp"
+                    android:background="#FFFFFF"
+                    android:layout_above="@id/v_rectangle"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginStart="35dp"/>
+
+                <View
+                    android:id="@+id/v_horizontal_4"
+                    android:layout_width="20dp"
+                    android:layout_height="5dp"
+                    android:background="#FFFFFF"
+                    android:layout_above="@id/v_rectangle"
+                    android:layout_marginBottom="18dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="35dp"/>
+
+                <View
+                    android:id="@+id/v_vertical_2"
+                    android:layout_width="5.7dp"
+                    android:layout_height="20dp"
+                    android:background="#FFFFFF"
+                    android:layout_below="@id/v_horizontal_1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="7dp"/>
+
+                <TextView
+                    android:id="@+id/tv_data_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/esp32_status"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/tv_data_tanggal"
+                    android:textColor="@color/textColor"
+                    android:layout_marginTop="24dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_online"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/iv_fire_detected_today"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/firealarm"
+                    android:layout_below="@+id/v_horizontal_2"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="13dp"/>
+
+                <TextView
+                    android:id="@+id/tv_total_fire_today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iv_fire_detected_today"
+                    android:layout_toStartOf="@+id/v_vertical_1"
+                    android:layout_below="@+id/v_horizontal_2"
+                    android:layout_marginTop="17dp"
+                    android:textColor="@color/textColor"
+                    android:text="@string/tv_data_fire_today"/>
+
+                <ImageView
+                    android:id="@+id/iv_waterpump_usage"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/watercrisis"
+                    android:layout_below="@+id/v_horizontal_2"
+                    android:layout_toEndOf="@id/v_vertical_1"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="13dp"/>
+
+                <TextView
+                    android:id="@+id/tv_total_water_todday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iv_waterpump_usage"
+                    android:layout_below="@+id/v_horizontal_2"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginEnd="30dp"
+                    android:textColor="@color/textColor"
+                    android:text="@string/tv_data_water_usage"/>
 
             </RelativeLayout>
 
@@ -146,16 +247,8 @@
             android:layout_below="@+id/card_view"
             android:layout_toEndOf="@id/pump_status"
             android:layout_margin="20dp"
-            android:text="Sensor"/>
-
-        <Button
-            android:id="@+id/button_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button_mode"
-            android:layout_margin="20dp"
-            android:visibility="visible"
-            android:text="Time"/>
+            android:text="Sensor"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 </FrameLayout>

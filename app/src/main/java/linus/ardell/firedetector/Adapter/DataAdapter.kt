@@ -29,14 +29,14 @@ class DataAdapter (private val dataList: List<MainData>) : RecyclerView.Adapter<
 
 class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val btnAuto: Button = itemView.findViewById(R.id.button_mode)
-    val btnTime: Button = itemView.findViewById(R.id.button_date)
     val btnPumpStatus: Button = itemView.findViewById(R.id.pump_status)
     val btnSensorStatus: Button = itemView.findViewById(R.id.sensor_status)
+    val tvDataTanggal : TextView = itemView.findViewById(R.id.tv_data_tanggal)
 
     fun bind(data: MainData) {
         btnAuto.text = "Auto: ${data.autoMode}"
         btnPumpStatus.text = "Pump: ${data.pumpStatus}"
         btnSensorStatus.text = "Sensor: ${data.sensorStatus}"
-        btnTime.text = "Time: ${data.dateTime}"
+        tvDataTanggal.text = "Last Ping : ${data.dateTime}"
     }
 }

@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="mainColor">#06020F</color>
+    <color name="mainColor">#06020f</color>
     <color name="grey">#242528</color>
     <color name="green">#4CAF50</color>
 
@@ -11,7 +11,9 @@
     <color name="outlineTransparent">#BF08ECA6</color>
     <color name="transparentCard">#8006020F</color>
 
-    <color name="cardTransparent">#56c160</color>
+    <color name="homeCardBackgroundColor">#222229</color>
 
     <color name="textColor">#ffffff</color>
+
+    <color name="viewLine">#99969b</color>
 </resources>

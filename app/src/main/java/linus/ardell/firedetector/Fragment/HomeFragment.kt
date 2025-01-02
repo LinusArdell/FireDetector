@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -23,22 +25,29 @@ import com.google.firebase.database.ValueEventListener
 import linus.ardell.firedetector.Adapter.DataAdapter
 import linus.ardell.firedetector.DataClass.MainData
 import linus.ardell.firedetector.R
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 class HomeFragment : Fragment() {
 
+    private lateinit var ivTitleIcons: ImageView
+    private lateinit var progressOnlines: ProgressBar
+    private lateinit var tvSubtitles: TextView
+    private lateinit var esp32Statuss: TextView
+
     private lateinit var database: DatabaseReference
     private lateinit var buttonMode: Button
     private lateinit var buttonPump: Button
     private lateinit var buttonSensor: Button
-    private lateinit var buttonDate: Button
     private lateinit var textESP32Status: TextView
+    private lateinit var tvDataTanggal: TextView
     private var isAutoMode: Boolean = false
     private var isPumpOn: Boolean = false
 
     private val handler = Handler(Looper.getMainLooper())
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    private val outputDateFormat = SimpleDateFormat("dd MMMM yyyy HH:mm:ss", Locale("id", "ID"))
     private var lastFirebaseTime: Long = 0L
 
     override fun onCreateView(
@@ -47,12 +56,16 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        // Inisialisasi View
         buttonMode = view.findViewById(R.id.button_mode)
         buttonPump = view.findViewById(R.id.pump_status)
         buttonSensor = view.findViewById(R.id.sensor_status)
-        buttonDate = view.findViewById(R.id.button_date)
         textESP32Status = view.findViewById(R.id.esp32_status)
+        tvDataTanggal = view.findViewById(R.id.tv_data_tanggal)
+
+        ivTitleIcons = view.findViewById(R.id.iv_title_icon)
+        progressOnlines = view.findViewById(R.id.progress_online)
+        tvSubtitles = view.findViewById(R.id.tv_subtitle)
+        esp32Statuss = view.findViewById(R.id.esp32_status)
 
         database = FirebaseDatabase.getInstance().getReference("Main")
         observeFirebaseData()
@@ -66,6 +79,7 @@ class HomeFragment : Fragment() {
         }
 
         handler.postDelayed(updateStatusRunnable, 1000)
+        handler.postDelayed(updateStatusRunnables, 1000)
 
         return view
     }
@@ -88,21 +102,30 @@ class HomeFragment : Fragment() {
         })
     }
 
+    private fun formatDate(currentTime: String): String {
+        return try {
+            val date = dateFormat.parse(currentTime)
+            date?.let { outputDateFormat.format(it) } ?: "Invalid Date"
+        } catch (e: Exception) {
+            "Invalid Date"
+        }
+    }
+
     private fun updateUI(auto: Int, pumpStatus: Int, sensorStatus: Int, currentTime: String) {
         isAutoMode = auto == 0
         buttonMode.text = if (isAutoMode) "Mode: Auto" else "Mode: Manual"
 
-        buttonPump.isEnabled = !isAutoMode // Disable tombol jika mode Auto
+        buttonPump.isEnabled = !isAutoMode
         isPumpOn = pumpStatus == 0
         buttonPump.text = if (isPumpOn) "Pump: ON" else "Pump: OFF"
 
         buttonSensor.text = "Sensor: $sensorStatus"
-        buttonDate.text = "Time: $currentTime"
+        tvDataTanggal.text = "Last Ping : ${formatDate(currentTime)}"
     }
 
     private fun toggleAutoMode() {
         isAutoMode = !isAutoMode
-        val newValue = if (isAutoMode) 1 else 0
+        val newValue = if (isAutoMode) 0 else 1
         database.child("auto").setValue(newValue).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d("HomeFragment", "Mode berhasil diubah")
@@ -121,7 +144,7 @@ class HomeFragment : Fragment() {
         val newPumpStatus = if (isPumpOn) 0 else 1
         database.child("pumpStatus").setValue(newPumpStatus).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Log.d("HomeFragment", "Pompa berhasil diubah ke status ${if (newPumpStatus == 1) "ON" else "OFF"}")
+                Log.d("HomeFragment", "Pompa berhasil diubah ke status ${if (newPumpStatus == 0) "ON" else "OFF"}")
             } else {
                 Log.e("HomeFragment", "Gagal mengubah status pompa: ${task.exception?.message}")
             }
@@ -152,8 +175,53 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private val updateStatusRunnables = object : Runnable {
+        override fun run() {
+            val currentTimeMillis = System.currentTimeMillis()
+            if (lastFirebaseTime != 0L && lastFirebaseTime + 2000 >= currentTimeMillis) {
+                ivTitleIcons.visibility = View.GONE
+                progressOnlines.visibility = View.VISIBLE
+                tvSubtitles.text = getString(R.string.tv_subtitle)
+            } else {
+                ivTitleIcons.visibility = View.VISIBLE
+                progressOnlines.visibility = View.GONE
+                tvSubtitles.text = "ESP32 is OFFLINE"
+            }
+            handler.postDelayed(this, 2000)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         handler.removeCallbacks(updateStatusRunnable)
+    }
+
+    private fun updateESP32Status(
+        currentTime: String,
+        ivTitleIcon: ImageView,
+        progressOnline: ProgressBar,
+        tvSubtitle: TextView
+    ) {
+        try {
+            val firebaseTime = dateFormat.parse(currentTime)?.time ?: 0L
+            lastFirebaseTime = firebaseTime
+
+            val currentTimeMillis = System.currentTimeMillis()
+            if (lastFirebaseTime + 2000 >= currentTimeMillis) {
+                // Online
+                ivTitleIcon.visibility = View.GONE
+                progressOnline.visibility = View.VISIBLE
+                tvSubtitle.text = getString(R.string.tv_subtitle) // Text tetap
+            } else {
+                // Offline
+                ivTitleIcon.visibility = View.VISIBLE
+                progressOnline.visibility = View.GONE
+                tvSubtitle.text = "ESP32 is OFFLINE" // Ubah teks
+            }
+        } catch (e: Exception) {
+            ivTitleIcon.visibility = View.VISIBLE
+            progressOnline.visibility = View.GONE
+            tvSubtitle.text = "ESP32 is OFFLINE" // Default status
+        }
     }
 }
