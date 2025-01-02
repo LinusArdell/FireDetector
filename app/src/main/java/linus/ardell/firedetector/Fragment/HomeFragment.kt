@@ -113,11 +113,11 @@ class HomeFragment : Fragment() {
 
     private fun updateUI(auto: Int, pumpStatus: Int, sensorStatus: Int, currentTime: String) {
         isAutoMode = auto == 0
-        buttonMode.text = if (isAutoMode) "Mode: Auto" else "Mode: Manual"
+        buttonMode.text = if (isAutoMode) "Auto" else "Manual"
 
         buttonPump.isEnabled = !isAutoMode
         isPumpOn = pumpStatus == 0
-        buttonPump.text = if (isPumpOn) "Pump: ON" else "Pump: OFF"
+        buttonPump.text = if (isPumpOn) "ON" else "OFF"
 
         buttonSensor.text = "Sensor: $sensorStatus"
         tvDataTanggal.text = "Last Ping : ${formatDate(currentTime)}"
@@ -141,7 +141,7 @@ class HomeFragment : Fragment() {
             return
         }
 
-        val newPumpStatus = if (isPumpOn) 0 else 1
+        val newPumpStatus = if (isPumpOn) 1 else 0
         database.child("pumpStatus").setValue(newPumpStatus).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d("HomeFragment", "Pompa berhasil diubah ke status ${if (newPumpStatus == 0) "ON" else "OFF"}")

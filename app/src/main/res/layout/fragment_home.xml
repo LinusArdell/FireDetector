@@ -14,12 +14,13 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
             android:layout_width="match_parent"
-            android:layout_height="340dp"
-            android:layout_marginTop="40dp"
+            android:layout_height="360dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
             app:cardCornerRadius="30dp"
-            app:cardElevation="10dp">
+            app:cardElevation="10dp"
+            android:elevation="2dp">
 
             <View
                 android:layout_width="match_parent"
@@ -220,35 +221,165 @@
 
             </RelativeLayout>
 
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_mode"
+            android:layout_height="240dp"
+            android:layout_width="175dp"
+            android:layout_below="@id/card_view"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="23dp"
+            app:cardCornerRadius="30dp"
+            android:background="@color/mainColor"
+            android:elevation="2dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fragment_home_cardview" />
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/glowing_effect_2"/>
+
+
+            <View
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/circle_shape_2"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:src="@drawable/recovery"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sensor Mode"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="155dp"
+                android:textStyle="bold"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flame Sensor Standby"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="185dp"
+                android:textSize="11dp"/>
 
         </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/button_mode"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_view"
-            android:layout_margin="20dp"
-            android:text="Mode"/>
+            android:layout_below="@id/card_view"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="246dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="63dp"
+            android:text="Manual"
+            android:visibility="visible"
+            android:elevation="4dp"
+            android:translationZ="4dp"
+            android:backgroundTint="#268ff8"/>
 
-        <Button
-            android:id="@+id/pump_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card_view"
-            android:layout_toEndOf="@id/button_mode"
-            android:layout_margin="20dp"
-            android:text="Pump"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_pump"
+            android:layout_width="175dp"
+            android:layout_height="240dp"
+            android:layout_below="@id/card_view"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="23dp"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="30dp"
+            android:background="@color/mainColor"
+            android:elevation="2dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fragment_home_cardview" />
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/glowing_effect_3"/>
+
+            <View
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/circle_shape"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"/>
+
+            <ImageView
+                android:id="@+id/iv_sprinkler"
+                android:layout_width="40dp"
+                android:layout_height="80dp"
+                android:src="@drawable/firesprinkler"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fire Sprinkler"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="155dp"
+                android:textStyle="bold"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fire Sprinkler standby"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="185dp"
+                android:textSize="11dp"/>
+
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/sensor_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_view"
-            android:layout_toEndOf="@id/pump_status"
-            android:layout_margin="20dp"
             android:text="Sensor"
+            android:layout_below="@id/card_view"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="246dp"
+            android:layout_marginEnd="68dp"
+            android:translationZ="10dp"
             android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/pump_status"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card_view"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="246dp"
+            android:layout_marginEnd="60dp"
+            android:translationZ="10dp"
+            android:text="Off"
+            android:backgroundTint="#268ff8" />
 
     </RelativeLayout>
 </FrameLayout>

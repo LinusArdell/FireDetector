@@ -34,8 +34,8 @@ class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tvDataTanggal : TextView = itemView.findViewById(R.id.tv_data_tanggal)
 
     fun bind(data: MainData) {
-        btnAuto.text = "Auto: ${data.autoMode}"
-        btnPumpStatus.text = "Pump: ${data.pumpStatus}"
+        btnAuto.text = "${data.autoMode}"
+        btnPumpStatus.text = "${data.pumpStatus}"
         btnSensorStatus.text = "Sensor: ${data.sensorStatus}"
         tvDataTanggal.text = "Last Ping : ${data.dateTime}"
     }
