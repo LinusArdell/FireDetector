@@ -147,7 +147,7 @@ class HomeFragment : Fragment() {
                 textESP32Status.setTextColor(Color.RED)
                 "Offline"
             }
-            textESP32Status.text = "ESP32 Status: $status"
+            textESP32Status.text = "$status"
             handler.postDelayed(this, 2000)
         }
     }

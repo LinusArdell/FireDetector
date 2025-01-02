@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="100dp"
+    android:viewportWidth="200"
+    android:viewportHeight="100">
+
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#ffffff"
+        android:strokeWidth="4"
+        android:pathData="M0,100 A100,90 1 0 3 200,180" />
+    <!-- M0,100: Mulai dari kiri bawah -->
+    <!-- A100,100: Arc dengan radius 100 -->
+    <!-- 0 0 1: Sweep flags untuk membuat bagian atas setengah lingkaran -->
+    <!-- 200,100: Akhir di kanan bawah -->
+</vector>

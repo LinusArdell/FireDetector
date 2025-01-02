@@ -1,0 +1,17 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" />
+
+    <stroke
+        android:width="5dp"
+        android:color="#ffffff" />
+
+    <size
+        android:width="400dp"
+        android:height="200dp" /> <!-- Tinggi setengah lingkaran -->
+
+    <corners
+        android:topLeftRadius="200dp"
+        android:topRightRadius="200dp"
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp" />
+</shape>

@@ -14,18 +14,111 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="340dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
-            app:cardCornerRadius="15dp"
-            app:cardBackgroundColor="@color/mainColor"
-            android:backgroundTint="@color/mainColor">
+            app:cardCornerRadius="30dp"
+            app:cardElevation="10dp">
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/cardview_outline" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_title_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/exclamation"/>
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/tv_title"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/textColor"
+                    android:layout_toEndOf="@id/iv_title_icon"/>
+
+                <TextView
+                    android:id="@+id/tv_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/tv_subtitle"
+                    android:textSize="12sp"
+                    android:textColor="@color/textColor"
+                    android:layout_below="@id/tv_title"
+                    android:layout_toEndOf="@id/iv_title_icon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#80FFFFFF"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_below="@id/tv_subtitle"/>
+
+                <View
+                    android:id="@+id/v_half_cirle"
+                    android:layout_width="280dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/half_circle"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentBottom="false"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="90dp"/>
+
+                <TextView
+                    android:id="@+id/esp32_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="110dp"
+                    android:layout_marginStart="15dp"
+                    android:text="Offline"
+                    android:textColor="@color/textColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/tv_subtitle"
+                    android:visibility="visible"
+                    android:layout_centerHorizontal="true"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/v_half_cirle"
+                    android:layout_marginTop="-20dp"
+                    android:background="@color/cardTransparent"/>
+
+                <View
+                    android:id="@+id/v_horizontal_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2.5dp"
+                    android:background="#80FFFFFF"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_below="@id/v_half_cirle"/>
+
+                <View
+                    android:layout_width="2.3dp"
+                    android:layout_height="70dp"
+                    android:background="#80FFFFFF"
+                    android:layout_below="@id/v_horizontal_2"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
 
         </androidx.cardview.widget.CardView>
 
@@ -63,19 +156,6 @@
             android:layout_margin="20dp"
             android:visibility="visible"
             android:text="Time"/>
-
-        <TextView
-            android:id="@+id/esp32_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button_date"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
-            android:text="ESP32 Status: Offline"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
 
     </RelativeLayout>
 </FrameLayout>

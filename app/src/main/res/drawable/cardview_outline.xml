@@ -1,7 +1,4 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/mainColor" />
-    <stroke
-        android:width="5dp"
-        android:color="@color/outLine" />
-    <corners android:radius="10dp" />
+    <solid android:color="@color/cardTransparent" />
+
 </shape>

@@ -8,5 +8,10 @@
 
     <color name="indicator">#FFFFFFFF</color>
     <color name="outLine">#3ee3aa</color>
+    <color name="outlineTransparent">#BF08ECA6</color>
     <color name="transparentCard">#8006020F</color>
+
+    <color name="cardTransparent">#56c160</color>
+
+    <color name="textColor">#ffffff</color>
 </resources>

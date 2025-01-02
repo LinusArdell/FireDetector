@@ -2,4 +2,7 @@
     <string name="app_name">Fire Detector</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tv_subtitle">Retrieving live data from server...</string>
+    <string name="tv_title">Fire Alarm service</string>
 </resources>
