@@ -19,6 +19,7 @@
             android:background="@drawable/glowing_effect"/>
 
         <ImageView
+            android:id="@+id/iv_user_profile"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginStart="20dp"
@@ -27,12 +28,192 @@
             android:src="@drawable/user"
             android:layout_centerHorizontal="true"/>
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/mainColor">
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="Hello, Linus Ardell 👋"
+            android:textColor="@color/textColor"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/iv_user_profile"
+            android:layout_marginTop="20dp" />
 
-            
+        <TextView
+            android:id="@+id/tv_user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:text="linus@user.com"
+            android:textColor="@color/textColor"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_username"
+            android:layout_marginTop="3dp" />
+
+        <View
+            android:id="@+id/v_horizontal_1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/viewLine"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/tv_user_email"/>
+
+        <RelativeLayout
+            android:id="@+id/rv_edit_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/v_horizontal_1">
+
+            <View
+                android:id="@+id/v_glowing_icon_update_user"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:background="@drawable/glowing_icon"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/edituser"
+                android:layout_centerVertical="true"
+                android:visibility="visible"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_edit_user_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                android:text="Edit Profile"
+                android:layout_toEndOf="@id/v_glowing_icon_update_user"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rv_delete_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/rv_edit_user">
+
+            <View
+                android:id="@+id/v_glowing_icon_delete_user"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:background="@drawable/glowing_icon_2"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/deleteuser"
+                android:layout_centerVertical="true"
+                android:visibility="visible"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_delete_user_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                android:text="Delete Account"
+                android:layout_toEndOf="@id/v_glowing_icon_delete_user"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rv_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/rv_delete_user">
+
+            <View
+                android:id="@+id/v_glowing_icon_logout"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:background="@drawable/glowing_icon_3"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logout"
+                android:layout_centerVertical="true"
+                android:visibility="visible"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                android:text="Logout"
+                android:layout_toEndOf="@id/v_glowing_icon_logout"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_horizontal_2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/viewLine"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/rv_logout"/>
+
+        <RelativeLayout
+            android:id="@+id/rv_close_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/v_horizontal_2">
+
+            <View
+                android:id="@+id/v_glowing_icon_exit"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:background="@drawable/glowing_icon_4"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/exit"
+                android:layout_centerVertical="true"
+                android:visibility="visible"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                android:text="Close Apps"
+                android:layout_toEndOf="@id/v_glowing_icon_exit"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"/>
 
         </RelativeLayout>
 
