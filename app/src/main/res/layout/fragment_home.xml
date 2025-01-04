@@ -9,7 +9,129 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_mode"
+            android:layout_height="240dp"
+            android:layout_width="175dp"
+            android:layout_below="@id/card_view"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="23dp"
+            app:cardCornerRadius="30dp"
+            android:background="@color/mainColor"
+            app:cardElevation="0dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fragment_home_cardview" />
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/glowing_effect_2"/>
+
+
+            <View
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/circle_shape_2"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:src="@drawable/recovery"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sensor Mode"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="155dp"
+                android:textStyle="bold"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:id="@+id/tv_system_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current mode ; Manual"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="185dp"
+                android:textSize="11dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_pump"
+            android:layout_width="175dp"
+            android:layout_height="240dp"
+            android:layout_below="@id/card_view"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="23dp"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="30dp"
+            android:background="@color/mainColor"
+            app:cardElevation="0dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fragment_home_cardview" />
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/glowing_effect_3"/>
+
+            <View
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/circle_shape"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"/>
+
+            <ImageView
+                android:id="@+id/iv_sprinkler"
+                android:layout_width="40dp"
+                android:layout_height="80dp"
+                android:src="@drawable/firesprinkler"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fire Sprinkler"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="155dp"
+                android:textStyle="bold"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:id="@+id/tv_sprinkler_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sprinkler is active"
+                android:textColor="@color/textColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="185dp"
+                android:textSize="11dp"/>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
@@ -116,7 +238,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:background="@color/viewLine"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="19dp"
                     android:layout_marginStart="34dp"
                     android:layout_marginEnd="34dp"
                     android:layout_below="@id/v_half_cirle"/>
@@ -223,64 +345,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view_mode"
-            android:layout_height="240dp"
-            android:layout_width="175dp"
-            android:layout_below="@id/card_view"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="23dp"
-            app:cardCornerRadius="30dp"
-            android:background="@color/mainColor"
-            android:elevation="2dp">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/fragment_home_cardview" />
-
-            <View
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/glowing_effect_2"/>
-
-
-            <View
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:background="@drawable/circle_shape_2"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"/>
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:src="@drawable/recovery"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sensor Mode"
-                android:textColor="@color/textColor"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="155dp"
-                android:textStyle="bold"
-                android:textSize="17dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Flame Sensor Standby"
-                android:textColor="@color/textColor"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="185dp"
-                android:textSize="11dp"/>
-
-        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/button_mode"
@@ -293,69 +357,9 @@
             android:layout_marginStart="63dp"
             android:text="Manual"
             android:visibility="visible"
-            android:elevation="4dp"
+            android:elevation="0dp"
             android:translationZ="4dp"
             android:backgroundTint="#268ff8"/>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view_pump"
-            android:layout_width="175dp"
-            android:layout_height="240dp"
-            android:layout_below="@id/card_view"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="23dp"
-            android:layout_alignParentEnd="true"
-            app:cardCornerRadius="30dp"
-            android:background="@color/mainColor"
-            android:elevation="2dp">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/fragment_home_cardview" />
-
-            <View
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/glowing_effect_3"/>
-
-            <View
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:background="@drawable/circle_shape"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"/>
-
-            <ImageView
-                android:id="@+id/iv_sprinkler"
-                android:layout_width="40dp"
-                android:layout_height="80dp"
-                android:src="@drawable/firesprinkler"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fire Sprinkler"
-                android:textColor="@color/textColor"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="155dp"
-                android:textStyle="bold"
-                android:textSize="17dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fire Sprinkler standby"
-                android:textColor="@color/textColor"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="185dp"
-                android:textSize="11dp"/>
-
-        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/sensor_status"
@@ -382,4 +386,6 @@
             android:backgroundTint="#268ff8" />
 
     </RelativeLayout>
+
+
 </FrameLayout>

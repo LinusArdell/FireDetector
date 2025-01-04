@@ -1,6 +1,7 @@
 package linus.ardell.firedetector.Fragment
 
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,20 +13,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import linus.ardell.firedetector.Adapter.DataAdapter
-import linus.ardell.firedetector.DataClass.MainData
 import linus.ardell.firedetector.R
-import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -35,6 +29,9 @@ class HomeFragment : Fragment() {
     private lateinit var progressOnlines: ProgressBar
     private lateinit var tvSubtitles: TextView
     private lateinit var esp32Statuss: TextView
+
+    private lateinit var tvSystemMode : TextView
+    private lateinit var tvSprinklerStatus : TextView
 
     private lateinit var database: DatabaseReference
     private lateinit var buttonMode: Button
@@ -66,6 +63,9 @@ class HomeFragment : Fragment() {
         progressOnlines = view.findViewById(R.id.progress_online)
         tvSubtitles = view.findViewById(R.id.tv_subtitle)
         esp32Statuss = view.findViewById(R.id.esp32_status)
+
+        tvSystemMode = view.findViewById(R.id.tv_system_mode)
+        tvSprinklerStatus = view.findViewById(R.id.tv_sprinkler_status)
 
         database = FirebaseDatabase.getInstance().getReference("Main")
         observeFirebaseData()
@@ -114,10 +114,12 @@ class HomeFragment : Fragment() {
     private fun updateUI(auto: Int, pumpStatus: Int, sensorStatus: Int, currentTime: String) {
         isAutoMode = auto == 0
         buttonMode.text = if (isAutoMode) "Auto" else "Manual"
+        tvSystemMode.text = if (isAutoMode) "Current Mode : Auto" else "Current Mode : Manual"
 
         buttonPump.isEnabled = !isAutoMode
         isPumpOn = pumpStatus == 0
         buttonPump.text = if (isPumpOn) "ON" else "OFF"
+        tvSprinklerStatus.text = if (isPumpOn) "Sprinkler is Active" else "Sprinkler is Off"
 
         buttonSensor.text = "Sensor: $sensorStatus"
         tvDataTanggal.text = "Last Ping : ${formatDate(currentTime)}"

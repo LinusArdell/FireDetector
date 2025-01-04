@@ -28,8 +28,8 @@ class DataAdapter (private val dataList: List<MainData>) : RecyclerView.Adapter<
 }
 
 class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val btnAuto: Button = itemView.findViewById(R.id.button_mode)
-    val btnPumpStatus: Button = itemView.findViewById(R.id.pump_status)
+    val btnAuto: TextView = itemView.findViewById(R.id.tv_system_mode)
+    val btnPumpStatus: TextView = itemView.findViewById(R.id.tv_sprinkler_status)
     val btnSensorStatus: Button = itemView.findViewById(R.id.sensor_status)
     val tvDataTanggal : TextView = itemView.findViewById(R.id.tv_data_tanggal)
 
