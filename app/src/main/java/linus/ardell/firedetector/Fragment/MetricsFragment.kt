@@ -29,14 +29,13 @@ class MetricsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_metrics, container, false)
-        recyclerView = view.findViewById(R.id.recycler_view_history)
 
+        recyclerView = view.findViewById(R.id.recycler_view_history)
         historyAdapter = HistoryAdapter(historyList)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = historyAdapter
 
         database = FirebaseDatabase.getInstance().getReference("History")
-
         fetchHistoryData()
 
         return view
@@ -54,7 +53,7 @@ class MetricsFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("StatisticFragment", "Error fetching data: ${error.message}")
+                Log.e("MetricsFragment", "Error fetching data: ${error.message}")
             }
         })
     }

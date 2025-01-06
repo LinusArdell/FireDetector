@@ -22,22 +22,85 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time Range: 2024-12-19 16:10:43 - 2024-12-19 16:10:49"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_pump_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pump Status: 0"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_sensor_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sensor Status: 0"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="gone"/>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/glow_icon_background"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"/>
+
+        <ImageView
+            android:id="@+id/iv_fire_warning"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/fireprevention"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_fire_detected_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_fire_detected_today"
+            android:layout_toEndOf="@id/iv_fire_warning"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_history_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/raw_date_format"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/tv_history_sprinkler"/>
+
+        <TextView
+            android:id="@+id/tv_history_date_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_toEndOf="@id/iv_fire_warning"
+            android:layout_below="@id/tv_fire_detected_day"
+            android:text="@string/date_range"/>
+
+        <TextView
+            android:id="@+id/tv_history_sprinkler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_toEndOf="@id/iv_fire_warning"
+            android:layout_below="@id/tv_history_date_range"
+            android:text="@string/sprinkler_range"/>
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

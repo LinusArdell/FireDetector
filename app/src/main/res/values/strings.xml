@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fire Detector</string>
+    <string name="app_name">Fire Watch</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -9,4 +9,10 @@
     <string name="tv_data_tanggal">Last PING : 12 Januari 2025, 12:11:09</string>
     <string name="tv_data_fire_today">3 Fire Detected Today</string>
     <string name="tv_data_water_usage">5 Times water pump been used</string>
+
+    <string name="tv_fire_detected_today">Fire detected today</string>
+    <string name="raw_date_format">29-07-2024</string>
+
+    <string name="date_range">Fire detected at 12:12:08 until 12.11.01</string>
+    <string name="sprinkler_range">Sprinkler active for 3 minutes</string>
 </resources>
