@@ -1,7 +1,6 @@
 package linus.ardell.firedetector.Fragment
 
 import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -19,6 +18,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import linus.ardell.firedetector.Object.FirebaseHelper
 import linus.ardell.firedetector.R
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -41,6 +41,9 @@ class HomeFragment : Fragment() {
     private lateinit var tvDataTanggal: TextView
     private var isAutoMode: Boolean = false
     private var isPumpOn: Boolean = false
+
+    private lateinit var tvTotalFireToday: TextView
+    private lateinit var tvTotalWaterTodday : TextView
 
     private val handler = Handler(Looper.getMainLooper())
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
@@ -67,8 +70,17 @@ class HomeFragment : Fragment() {
         tvSystemMode = view.findViewById(R.id.tv_system_mode)
         tvSprinklerStatus = view.findViewById(R.id.tv_sprinkler_status)
 
+        tvTotalFireToday = view.findViewById(R.id.tv_total_fire_today)
+        tvTotalWaterTodday = view.findViewById(R.id.tv_total_water_todday)
+
         database = FirebaseDatabase.getInstance().getReference("Main")
+        database = FirebaseDatabase.getInstance().getReference("History")
         observeFirebaseData()
+
+        FirebaseHelper.fetchTodayStats(database) { fireCount, waterCount ->
+            tvTotalFireToday.text = fireCount.toString()
+            tvTotalWaterTodday.text = waterCount.toString()
+        }
 
         buttonMode.setOnClickListener {
             toggleAutoMode()
@@ -196,34 +208,5 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         handler.removeCallbacks(updateStatusRunnable)
-    }
-
-    private fun updateESP32Status(
-        currentTime: String,
-        ivTitleIcon: ImageView,
-        progressOnline: ProgressBar,
-        tvSubtitle: TextView
-    ) {
-        try {
-            val firebaseTime = dateFormat.parse(currentTime)?.time ?: 0L
-            lastFirebaseTime = firebaseTime
-
-            val currentTimeMillis = System.currentTimeMillis()
-            if (lastFirebaseTime + 2000 >= currentTimeMillis) {
-                // Online
-                ivTitleIcon.visibility = View.GONE
-                progressOnline.visibility = View.VISIBLE
-                tvSubtitle.text = getString(R.string.tv_subtitle) // Text tetap
-            } else {
-                // Offline
-                ivTitleIcon.visibility = View.VISIBLE
-                progressOnline.visibility = View.GONE
-                tvSubtitle.text = "ESP32 is OFFLINE" // Ubah teks
-            }
-        } catch (e: Exception) {
-            ivTitleIcon.visibility = View.VISIBLE
-            progressOnline.visibility = View.GONE
-            tvSubtitle.text = "ESP32 is OFFLINE" // Default status
-        }
     }
 }
