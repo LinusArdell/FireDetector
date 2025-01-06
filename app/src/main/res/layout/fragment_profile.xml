@@ -73,13 +73,13 @@
 
             <View
                 android:id="@+id/v_glowing_icon_update_user"
-                android:layout_width="60dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/glowing_icon"/>
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/edituser"
                 android:layout_centerVertical="true"
                 android:visibility="visible"
@@ -90,11 +90,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColor"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:text="Edit Profile"
                 android:layout_toEndOf="@id/v_glowing_icon_update_user"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"/>
+                android:layout_marginStart="10dp"/>
 
         </RelativeLayout>
 
@@ -104,18 +104,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="0dp"
             android:layout_below="@id/rv_edit_user">
 
             <View
                 android:id="@+id/v_glowing_icon_delete_user"
-                android:layout_width="60dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/glowing_icon_2"/>
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/deleteuser"
                 android:layout_centerVertical="true"
                 android:visibility="visible"
@@ -126,11 +126,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColor"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:text="Delete Account"
                 android:layout_toEndOf="@id/v_glowing_icon_delete_user"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"/>
+                android:layout_marginStart="10dp"/>
 
         </RelativeLayout>
 
@@ -140,18 +140,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="0dp"
             android:layout_below="@id/rv_delete_user">
 
             <View
                 android:id="@+id/v_glowing_icon_logout"
-                android:layout_width="60dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/glowing_icon_3"/>
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/logout"
                 android:layout_centerVertical="true"
                 android:visibility="visible"
@@ -162,11 +162,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColor"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:text="Logout"
                 android:layout_toEndOf="@id/v_glowing_icon_logout"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"/>
+                android:layout_marginStart="10dp"/>
 
         </RelativeLayout>
 
@@ -176,7 +176,7 @@
             android:layout_height="2dp"
             android:background="@color/viewLine"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="6dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_below="@id/rv_logout"/>
@@ -187,18 +187,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="0dp"
             android:layout_below="@id/v_horizontal_2">
 
             <View
                 android:id="@+id/v_glowing_icon_exit"
-                android:layout_width="60dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/glowing_icon_4"/>
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/exit"
                 android:layout_centerVertical="true"
                 android:visibility="visible"

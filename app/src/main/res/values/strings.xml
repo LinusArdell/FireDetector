@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="tv_subtitle">ESP32 is Offline</string>
+    <string name="tv_subtitle">ESP32 is Online</string>
     <string name="tv_title">Fire Alarm service</string>
 
     <string name="tv_data_tanggal">Last PING : 12 Januari 2025, 12:11:09</string>
