@@ -20,7 +20,7 @@ class AutoModeController(private val view: View, private val database: DatabaseR
             override fun onDataChange(snapshot: DataSnapshot) {
                 val auto = snapshot.child("auto").getValue(Int::class.java) ?: 0
                 val sprinkler = snapshot.child("pumpStatus").getValue(Int::class.java) ?: 0
-                isAutoMode = auto == 0
+                isAutoMode = auto == 1
                 isPumpActive = sprinkler == 0
 
                 updateUI()
@@ -36,7 +36,7 @@ class AutoModeController(private val view: View, private val database: DatabaseR
         val button = view.findViewById<Button>(R.id.button_mode)
         button.setOnClickListener {
             isAutoMode = !isAutoMode
-            database.child("auto").setValue(if (isAutoMode) 0 else 1)
+            database.child("auto").setValue(if (isAutoMode) 1 else 0)
         }
     }
 

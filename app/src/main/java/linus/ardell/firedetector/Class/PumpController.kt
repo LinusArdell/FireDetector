@@ -27,7 +27,7 @@ class PumpController(private val view: View, private val database: DatabaseRefer
         database.child("auto").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val auto = snapshot.getValue(Int::class.java) ?: 0
-                isAutoMode = auto == 0
+                isAutoMode = auto == 1
 
                 // Update button state based on "auto" value
                 button.isEnabled = !isAutoMode
