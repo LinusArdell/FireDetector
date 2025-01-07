@@ -13,6 +13,18 @@ fun formatFireDetectedDay(rawTime: String): String {
 
         date?.let {
             calendar.time = date
+
+            // Set both calendars to midnight for accurate date-only comparison
+            calendar.set(Calendar.HOUR_OF_DAY, 0)
+            calendar.set(Calendar.MINUTE, 0)
+            calendar.set(Calendar.SECOND, 0)
+            calendar.set(Calendar.MILLISECOND, 0)
+
+            currentCalendar.set(Calendar.HOUR_OF_DAY, 0)
+            currentCalendar.set(Calendar.MINUTE, 0)
+            currentCalendar.set(Calendar.SECOND, 0)
+            currentCalendar.set(Calendar.MILLISECOND, 0)
+
             val diffInDays = ((currentCalendar.timeInMillis - calendar.timeInMillis) / (1000 * 60 * 60 * 24)).toInt()
 
             when (diffInDays) {

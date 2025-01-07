@@ -81,6 +81,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
             android:layout_below="@id/tv_history_sprinkler"/>
 
         <TextView
